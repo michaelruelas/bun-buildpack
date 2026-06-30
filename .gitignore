@@ -1,0 +1,16 @@
+# Builder images / local export
+*.tar
+*.tgz
+
+# Editor
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Secrets
+.env
+.env.*
+
+# Buildpack local clones
+/heroku-bun-buildpack/
