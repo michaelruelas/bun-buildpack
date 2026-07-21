@@ -1,0 +1,30 @@
+name: Build and Publish
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pack
+        uses: buildpacks/github-actions/setup-pack@v5
+
+      - name: Build builder image
+        run: pack builder create ghcr.io/${{ github.repository }}:$(git describe --tags) --config builder.toml
+
+      - name: Push to GHCR
+        run: docker push ghcr.io/${{ github.repository }}:$(git describe --tags)
+
+      - name: Push latest tag
+        if: endsWith(github.ref, '.0')
+        run: |
+          docker tag ghcr.io/${{ github.repository }}:$(git describe --tags) ghcr.io/${{ github.repository }}:latest
+          docker push ghcr.io/${{ github.repository }}:latest

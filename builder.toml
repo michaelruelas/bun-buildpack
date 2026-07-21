@@ -1,7 +1,10 @@
 description = "Custom builder with kilterset/bun buildpack on Jammy base"
+
+# For local development, ensure ../heroku-bun-buildpack exists as a sibling directory.
+# For releases, this URI is replaced by the published buildpack reference.
 [[buildpacks]]
   id = "kilterset/bun"
-  uri = "https://github.com/kilterset/heroku-bun-buildpack"
+  uri = "../heroku-bun-buildpack"
   version = "1.0.0"
 [[buildpacks]]
   uri = "docker://docker.io/paketobuildpacks/procfile:5.13.4"

@@ -1,5 +1,5 @@
-IMAGE    ?= forgejo.qubitquilt.dev/qubitquilt/cnb-builder-bun
-TAG      ?= v0.1.0
+IMAGE    ?= ghcr.io/michaelruelas/cnb-builder-bun
+TAG      ?= v1.0.0
 BUILDER   = $(IMAGE):$(TAG)
 CONFIG    = builder.toml
 

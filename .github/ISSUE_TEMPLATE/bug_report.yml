@@ -1,0 +1,38 @@
+---
+name: Bug Report
+about: Report something that doesn't work as expected
+title: "[Bug] "
+labels: bug
+assignees: ''
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Describe the bug
+        A clear description of what the problem is.
+
+        ## Steps to reproduce
+        1.
+        2.
+        3.
+
+        ## Expected behavior
+        What should happen.
+
+        ## Actual behavior
+        What actually happens.
+
+        ## Environment
+        - OS: [e.g., macOS, Linux]
+        - Builder image tag: [e.g., v1.0.0]
+        - pack version:
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      description: Paste any relevant logs here
+      render: shell
+    validations:
+      required: false
