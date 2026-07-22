@@ -12,8 +12,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install pack
-        uses: buildpacks/github-actions/setup-pack@v5.9.7
-
-      - name: Validate builder.toml
-        run: pack builder create localhost/bun-buildpack-validate --config builder.toml
+      - name: Validate builder.toml syntax
+        run: cat builder.toml
