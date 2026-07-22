@@ -16,4 +16,4 @@ jobs:
         uses: buildpacks/github-actions/setup-pack@v5.9.7
 
       - name: Validate builder.toml
-        run: pack builder inspect --config builder.toml
+        run: pack builder create localhost/bun-buildpack-validate --config builder.toml
